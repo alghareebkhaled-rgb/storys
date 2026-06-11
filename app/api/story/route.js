@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-const MODEL = "anthropic/claude-3-haiku";
+const MODEL = "openai/gpt-oss-120b:free";
 
 const SYSTEM_PROMPTS = {
   en: `You are a beloved children's storyteller. Write a creative, engaging,
@@ -83,7 +83,10 @@ export async function POST(request) {
     }
 
     const data = await response.json();
-    const story = data?.choices?.[0]?.message?.content?.trim();
+    // Strip markdown emphasis markers some models add — the UI renders plain text.
+    const story = data?.choices?.[0]?.message?.content
+      ?.replace(/\*\*|__|^#+\s*/gm, "")
+      .trim();
 
     if (!story) {
       console.error("OpenRouter returned an empty story:", data);

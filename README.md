@@ -8,7 +8,7 @@ by AI — under a blue sky with a glowing sun and drifting clouds.
 
 - **Next.js** (App Router) — server-side API route keeps the key secret
 - **Tailwind CSS** — custom animations (drifting clouds, glowing sun, spinning loader)
-- **OpenRouter API** — `anthropic/claude-3-haiku` for fast, affordable stories
+- **OpenRouter API** — `openai/gpt-oss-120b:free` (free tier) for stories
 - Full **RTL support** — the whole UI flips and translates for Arabic
 
 ## Getting started
